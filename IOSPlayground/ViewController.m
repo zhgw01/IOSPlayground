@@ -126,6 +126,15 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SectionModel* sectionModel = [self.data objectAtIndex: indexPath.section];
+    ItemModel* itemModel = [sectionModel.items objectAtIndex:indexPath.row];
+    
+    UIViewController* controller = [NSClassFromString(itemModel.controller) new];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 40;
