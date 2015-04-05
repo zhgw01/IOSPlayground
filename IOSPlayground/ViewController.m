@@ -56,6 +56,7 @@
         UILabel* header = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
         header.text = sectionModel.section;
         header.textAlignment = NSTextAlignmentCenter;
+        header.backgroundColor = [UIColor grayColor];
         
         [self.headers addObject:header];
     }
@@ -83,12 +84,26 @@
     }
 }
 
+#pragma mark - view events
+
 - (void) viewDidLoad
 {
     [super viewDidLoad];
     
     [self.tableView reloadData];
     [self.tableView openSection:0 animated:NO];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = YES;
+    [super viewWillAppear:animated];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = NO;
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - table view datasource
