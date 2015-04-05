@@ -7,7 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "SectionModel.h"
+#import "ItemModel.h"
 #import <STCollapseTableView.h>
+#import <Mantle.h>
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -41,30 +44,42 @@
 
 - (void)setupViewController
 {
-    NSArray* colors = @[[UIColor redColor],
-                        [UIColor orangeColor],
-                        [UIColor yellowColor],
-                        [UIColor greenColor],
-                        [UIColor blueColor],
-                        [UIColor purpleColor]];
     
     self.data = [[NSMutableArray alloc] init];
-    for (int i = 0 ; i < [colors count] ; i++)
-    {
-        NSMutableArray* section = [[NSMutableArray alloc] init];
-        for (int j = 0 ; j < 3 ; j++)
-        {
-            [section addObject:[NSString stringWithFormat:@"Cell n°%i", j]];
-        }
-        [self.data addObject:section];
-    }
-    
     self.headers = [[NSMutableArray alloc] init];
-    for (int i = 0 ; i < [colors count] ; i++)
+    
+    [self loadJsonFile];
+    
+    for (int i = 0 ; i < [self.data count] ; i++)
     {
-        UIView* header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
-        [header setBackgroundColor:[colors objectAtIndex:i]];
+        SectionModel* sectionModel = [self.data objectAtIndex:i];
+        UILabel* header = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+        header.text = sectionModel.section;
+        header.textAlignment = NSTextAlignmentCenter;
+        
         [self.headers addObject:header];
+    }
+}
+
+- (void) loadJsonFile
+{
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"examples" ofType:@"json"];
+    NSData* jsonData = [NSData dataWithContentsOfFile:filePath];
+    if (jsonData) {
+        NSError* error;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+        if (error) {
+            NSLog(@"Couldn't deserealize app info data into JSON from NSData: %@", error);
+            return;
+        }
+        
+        NSArray* sections = [MTLJSONAdapter modelsOfClass:[SectionModel class] fromJSONArray:jsonArray error:&error];
+        if (error) {
+            NSLog(@"Couldn't deserializing sections from NSData: %@", error);
+            return;
+        }
+        
+        [self.data addObjectsFromArray:sections];
     }
 }
 
@@ -85,7 +100,8 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.data objectAtIndex:section] count];
+    SectionModel* sectionModel = [self.data objectAtIndex: section];
+    return [sectionModel.items count];
 }
 
 #pragma mark - tablew view data delegate
@@ -101,7 +117,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
     
-    NSString* text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    SectionModel* sectionModel = [self.data objectAtIndex: indexPath.section];
+    ItemModel* itemModel = [sectionModel.items objectAtIndex:indexPath.row];
+    
+    NSString* text = itemModel.name;
     cell.textLabel.text = text;
     
     return cell;
@@ -112,7 +131,7 @@
     return 40;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     return [self.headers objectAtIndex:section];
 }

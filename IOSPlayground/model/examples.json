@@ -1,0 +1,11 @@
+[
+  {
+    "section": "table",
+    "items": [
+      {
+      	"name": "collapse",
+      	"controller": "UIViewController"
+      }
+    ]
+  }
+]

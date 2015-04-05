@@ -15,6 +15,8 @@
 		9B1837741AB9C87B00CC05D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B1837721AB9C87B00CC05D8 /* LaunchScreen.xib */; };
 		9B1837801AB9C87B00CC05D8 /* IOSPlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B18377F1AB9C87B00CC05D8 /* IOSPlaygroundTests.m */; };
 		9B822E2F1AD175E5002B1030 /* SectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B822E2E1AD175E5002B1030 /* SectionModel.m */; };
+		9B822E321AD17CD8002B1030 /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B822E311AD17CD8002B1030 /* ItemModel.m */; };
+		9B822E341AD17F2F002B1030 /* examples.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B822E331AD17F2F002B1030 /* examples.json */; };
 		9F929CF559B94D682EE4BC29 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 416B7EF5532442802AF25767 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,9 @@
 		9B18377F1AB9C87B00CC05D8 /* IOSPlaygroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSPlaygroundTests.m; sourceTree = "<group>"; };
 		9B822E2D1AD175E5002B1030 /* SectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionModel.h; path = model/SectionModel.h; sourceTree = "<group>"; };
 		9B822E2E1AD175E5002B1030 /* SectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionModel.m; path = model/SectionModel.m; sourceTree = "<group>"; };
+		9B822E301AD17CD8002B1030 /* ItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemModel.h; path = model/ItemModel.h; sourceTree = "<group>"; };
+		9B822E311AD17CD8002B1030 /* ItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemModel.m; path = model/ItemModel.m; sourceTree = "<group>"; };
+		9B822E331AD17F2F002B1030 /* examples.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = examples.json; path = model/examples.json; sourceTree = "<group>"; };
 		E98EDC4225F5A0E924861CDF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +149,9 @@
 			children = (
 				9B822E2D1AD175E5002B1030 /* SectionModel.h */,
 				9B822E2E1AD175E5002B1030 /* SectionModel.m */,
+				9B822E301AD17CD8002B1030 /* ItemModel.h */,
+				9B822E311AD17CD8002B1030 /* ItemModel.m */,
+				9B822E331AD17F2F002B1030 /* examples.json */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -238,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B822E341AD17F2F002B1030 /* examples.json in Resources */,
 				9B18376F1AB9C87B00CC05D8 /* Main.storyboard in Resources */,
 				9B1837741AB9C87B00CC05D8 /* LaunchScreen.xib in Resources */,
 				9B1837711AB9C87B00CC05D8 /* Images.xcassets in Resources */,
@@ -292,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B18376C1AB9C87B00CC05D8 /* ViewController.m in Sources */,
+				9B822E321AD17CD8002B1030 /* ItemModel.m in Sources */,
 				9B1837691AB9C87B00CC05D8 /* AppDelegate.m in Sources */,
 				9B1837661AB9C87B00CC05D8 /* main.m in Sources */,
 				9B822E2F1AD175E5002B1030 /* SectionModel.m in Sources */,

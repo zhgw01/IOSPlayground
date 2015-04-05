@@ -6,8 +6,12 @@
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
 
-#import "MTLModel.h"
+#import <Mantle/Mantle.h>
 
-@interface SectionModel : MTLModel
+@interface SectionModel : MTLModel<MTLJSONSerializing>
+
+@property (nonatomic, strong) NSString* section;
+@property (nonatomic, strong) NSArray* items;
 
 @end
+

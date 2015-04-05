@@ -7,7 +7,18 @@
 //
 
 #import "SectionModel.h"
+#import "ItemModel.h"
 
 @implementation SectionModel
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{};
+}
+
++ (NSValueTransformer*) itemsJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[ItemModel class]];
+}
 
 @end
