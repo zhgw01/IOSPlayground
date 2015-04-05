@@ -1,10 +1,15 @@
 PODS:
+  - Mantle (1.5.1):
+    - Mantle/extobjc (= 1.5.1)
+  - Mantle/extobjc (1.5.1)
   - STCollapseTableView (0.1.1)
 
 DEPENDENCIES:
+  - Mantle
   - STCollapseTableView
 
 SPEC CHECKSUMS:
+  Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
   STCollapseTableView: 472507d1cadf06b2c97914c4920ef9e8aff83e9d
 
 COCOAPODS: 0.36.0

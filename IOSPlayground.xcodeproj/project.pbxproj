@@ -14,6 +14,7 @@
 		9B1837711AB9C87B00CC05D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B1837701AB9C87B00CC05D8 /* Images.xcassets */; };
 		9B1837741AB9C87B00CC05D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B1837721AB9C87B00CC05D8 /* LaunchScreen.xib */; };
 		9B1837801AB9C87B00CC05D8 /* IOSPlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B18377F1AB9C87B00CC05D8 /* IOSPlaygroundTests.m */; };
+		9B822E2F1AD175E5002B1030 /* SectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B822E2E1AD175E5002B1030 /* SectionModel.m */; };
 		9F929CF559B94D682EE4BC29 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 416B7EF5532442802AF25767 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		9B1837791AB9C87B00CC05D8 /* IOSPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B18377E1AB9C87B00CC05D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B18377F1AB9C87B00CC05D8 /* IOSPlaygroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSPlaygroundTests.m; sourceTree = "<group>"; };
+		9B822E2D1AD175E5002B1030 /* SectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionModel.h; path = model/SectionModel.h; sourceTree = "<group>"; };
+		9B822E2E1AD175E5002B1030 /* SectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionModel.m; path = model/SectionModel.m; sourceTree = "<group>"; };
 		E98EDC4225F5A0E924861CDF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +100,7 @@
 		9B1837621AB9C87B00CC05D8 /* IOSPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				9B822E2C1AD17533002B1030 /* model */,
 				9B1837671AB9C87B00CC05D8 /* AppDelegate.h */,
 				9B1837681AB9C87B00CC05D8 /* AppDelegate.m */,
 				9B18376A1AB9C87B00CC05D8 /* ViewController.h */,
@@ -133,6 +137,15 @@
 				9B18377E1AB9C87B00CC05D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B822E2C1AD17533002B1030 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9B822E2D1AD175E5002B1030 /* SectionModel.h */,
+				9B822E2E1AD175E5002B1030 /* SectionModel.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		F85D2FC177B3EC6FA873B605 /* Frameworks */ = {
@@ -281,6 +294,7 @@
 				9B18376C1AB9C87B00CC05D8 /* ViewController.m in Sources */,
 				9B1837691AB9C87B00CC05D8 /* AppDelegate.m in Sources */,
 				9B1837661AB9C87B00CC05D8 /* main.m in Sources */,
+				9B822E2F1AD175E5002B1030 /* SectionModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
