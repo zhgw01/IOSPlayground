@@ -3,8 +3,17 @@
     "section": "table",
     "items": [
       {
-      	"name": "collapse",
-      	"controller": "UIViewController"
+        "name": "collapse",
+        "controller": "UIViewController"
+      }
+    ]
+  },
+  {
+    "section": "mapkit",
+    "items": [
+      {
+        "name": "map",
+        "controller": "UIViewController"
       }
     ]
   }

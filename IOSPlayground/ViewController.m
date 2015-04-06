@@ -11,6 +11,7 @@
 #import "ItemModel.h"
 #import <STCollapseTableView.h>
 #import <Mantle.h>
+#import <Masonry.h>
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -53,10 +54,16 @@
     for (int i = 0 ; i < [self.data count] ; i++)
     {
         SectionModel* sectionModel = [self.data objectAtIndex:i];
-        UILabel* header = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
-        header.text = sectionModel.section;
-        header.textAlignment = NSTextAlignmentCenter;
-        header.backgroundColor = [UIColor grayColor];
+        UIView* header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+        UILabel* titleLabel = [[UILabel alloc] init];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.text = sectionModel.section;
+        header.backgroundColor = [UIColor greenColor];
+        [header addSubview:titleLabel];
+        
+        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(header);
+        }];
         
         [self.headers addObject:header];
     }
@@ -147,7 +154,7 @@
     ItemModel* itemModel = [sectionModel.items objectAtIndex:indexPath.row];
     
     UIViewController* controller = [NSClassFromString(itemModel.controller) new];
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:NO];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
